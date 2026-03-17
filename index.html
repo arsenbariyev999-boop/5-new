@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Арсен ❤️ Диана</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdf5e6; /* Нежный кремовый фон */
+            color: #333333; /* Мягкий чёрный текст */
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero {
+            height: 100dvh; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('love.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.8);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            text-shadow: 0 1px 10px rgba(255,255,255,0.5);
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            margin: 0;
+            font-weight: 700;
+            color: #ef9b87; /* Приглушённый персиковый */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .timer {
+            font-size: clamp(0.9rem, 4vw, 1.1rem);
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: clamp(1rem, 5vw, 1.4rem);
+            max-width: 600px;
+            margin: 20px auto 0;
+            line-height: 1.4;
+            color: #444;
+        }
+
+        .section-container {
+            padding: clamp(80px, 20vw, 120px) 25px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-bottom: 1px solid #e0e0e0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 7vw, 2.2rem);
+            margin-bottom: clamp(40px, 10vw, 60px);
+            font-weight: 700;
+            color: #ef9b87;
+            text-transform: uppercase;
+        }
+
+        .text-list {
+            list-style: none;
+            padding: 0;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .text-list li {
+            margin-bottom: 20px;
+            font-size: clamp(1.1rem, 5vw, 1.25rem);
+        }
+
+        .chat-block {
+            background: rgba(0,0,0,0.03);
+            padding: clamp(25px, 6vw, 45px);
+            border-radius: 15px;
+            font-style: italic;
+            border: 1px solid #eee;
+        }
+
+        .gallery-section {
+            padding: clamp(80px, 20vw, 120px) 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .footer {
+            text-align: center;
+            padding: clamp(100px, 25vw, 150px) 20px;
+            font-size: clamp(1.1rem, 5vw, 1.3rem);
+            color: #ef9b87;
+            font-weight: 500;
+        }
+
+        .heart {
+            color: #ef9b87;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            opacity: 0.5;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-10px) translateX(-50%);}
+            60% {transform: translateY(-5px) translateX(-50%);}
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="background-photo"></div>
+        <div class="content">
+            <h1>Арсен <span class="heart">❤️</span> Диана</h1>
+            <div class="quote">«Ты — моё спокойствие в этом шумном мире.»</div>
+            <div class="timer">5 месяцев. И это только начало.</div>
+        </div>
+        <div class="scroll-hint">листай вниз ↓</div>
+    </div>
+
+    <div class="section-container">
+        <h2>Как мы стали нами</h2>
+        <ul class="text-list">
+            <li>Мы ссорились, но всегда возвращались.</li>
+            <li>Ты не ушла, когда я был слабым.</li>
+            <li>Ты не отвернулась, когда я молчал.</li>
+            <li>Было больно, но мы выдержали.</li>
+            <li>Ты плакала — у меня сердце разрывалось.</li>
+            <li>Ты смеялась — я дышал.</li>
+            <li>Мы не развалились.</li>
+        </ul>
+    </div>
+
+    <div class="section-container">
+        <h2>Она говорила мне</h2>
+        <ul class="text-list">
+            <li>«Ты где шляешься?»</li>
+            <li>«Я уже всё поняла»</li>
+            <li>«Не пиши мне больше»</li>
+            <li>«Иди работай»</li>
+            <li>«Сам разбирайся»</li>
+            <li>«Ты опять занят»</li>
+            <li>«Я тебя не трогаю»</li>
+            <li>«Конечно, как всегда»</li>
+            <li>«Ты мне нужен»</li>
+            <li>«Иди сюда»</li>
+            <li>«Обними меня»</li>
+        </ul>
+    </div>
+
+    <div class="section-container">
+        <h2>Её голос, когда штормит</h2>
+        <ul class="text-list">
+            <li>«Иди к своим тёлкам»</li>
+            <li>«Ты меня не слышишь вообще»</li>
+            <li>«Всё, я тебя не трогаю»</li>
+            <li>«Мне ничего не надо»</li>
+            <li>«Ты опять занят. Конечно»</li>
+            <li>«Не пиши мне»</li>
+            <li>«Сам виноват»</li>
+            <li>«Ты такой же, как все»</li>
+            <li>«Зачем ты тогда нужен»</li>
+        </ul>
+    </div>
+
+    <div class="gallery-section">
+        <h2>Наши моменты</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="первая встреча.jpg" alt="Первая встреча" class="gallery-img">
+                <div class="gallery-caption">📍 Первая встреча</div>
+            </div>
+            <div class="gallery-item">
+                <img src="тот самый день.jpg" alt="Тот самый день" class="gallery-img">
+                <div class="gallery-caption">📍 Тот самый день</div>
+            </div>
+            <div class="gallery-item">
+                <img src="наша прогулка.jpg" alt="Наша прогулка" class="gallery-img">
+                <div class="gallery-caption">📍 Наша прогулка</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Смех до слез.jpg" alt="Смех до слез" class="gallery-img">
+                <div class="gallery-caption">📍 Смех до слёз</div>
+            </div>
+            <div class="gallery-item">
+                <img src="просто любимка.jpg" alt="Просто любимка" class="gallery-img">
+                <div class="gallery-caption">📍 Просто любимка</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Обычный день, но с тобой.jpg" alt="Обычный день" class="gallery-img">
+                <div class="gallery-caption">📍 Обычный день, но с тобой</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2>Что я делал не так</h2>
+        <ul class="text-list">
+            <li>Не отвечал вовремя</li>
+            <li>Срывался, когда уставал</li>
+            <li>Не говорил, что люблю</li>
+            <li>Пропадал и не писал</li>
+            <li>Не верил, что она правда переживает</li>
+            <li>Оправдывался, вместо того чтобы просто обнять</li>
+            <li>Думал, что она поймёт без слов</li>
+            <li>Забывал, что ей тоже больно</li>
+            <li>Молчал, когда надо было говорить</li>
+            <li>Говорил лишнего, когда надо было молчать</li>
+            <li style="margin-top: 25px; font-weight: 700; color: #ef9b87;">Она прощала. Почему — я не знаю.</li>
+        </ul>
+    </div>
+
+    <div class="section-container">
+        <h2>Наша история в нескольких строчках</h2>
+        <ul class="text-list">
+            <li>Ты ждала, когда я освобожусь. Я освобождался — и ты опять ждала.</li>
+            <li>Мы ссорились так, что хотелось всё послать.</li>
+            <li>Ты плакала. Я злился. Потом мирились.</li>
+            <li>Я уставал так, что не мог говорить. Ты молчала рядом.</li>
+            <li>Ты боялась, что я уйду. Я боялся, что ты устанешь.</li>
+            <li>Были дни, когда мы не писали друг другу — и оба сходили с ума.</li>
+            <li>Были ночи, когда мы говорили до утра.</li>
+            <li>Ты верила в меня, когда я сам в себя не верил.</li>
+            <li>Я старался ради тебя, даже когда сил не было.</li>
+            <li>Мы до сих пор здесь. Оба.</li>
+        </ul>
+    </div>
+
+    <div class="section-container">
+        <h2>Что я понял за 5 месяцев</h2>
+        <ul class="text-list">
+            <li>Что ты не одна. Даже когда молчишь.</li>
+            <li>Что ссоры — это не конец, а способ услышать друг друга.</li>
+            <li>Что ты умеешь ждать и прощать, хотя это тяжело.</li>
+            <li>Что быть уставшим — не стыдно. Стыдно молчать об этом.</li>
+            <li>Что ты — мой человек. Не потому что удобно, а потому что по-другому нельзя.</li>
+        </ul>
+    </div>
+
+    <div class="section-container">
+        <h2>Наши планы</h2>
+        <ul class="text-list">
+            <li>Поехать куда-нибудь вдвоём, где только мы</li>
+            <li>Посмотреть все аниме, которые ты любишь</li>
+            <li>Пережить следующую ссору без потерь</li>
+            <li>Дожить до года и улыбнуться, вспомнив этот день</li>
+            <li>Просто быть счастливыми — каждый день, по чуть-чуть</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        Дальше — больше. Спасибо, что ты есть ❤️
+    </div>
+</body>
+</html>
